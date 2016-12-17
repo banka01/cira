@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8" name="com.emc.qe.cira.ui.design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+ </head> 
+ <body> 
+  <vaadin-vertical-layout size-auto> 
+   <vaadin-form-layout size-auto> 
+    <vaadin-horizontal-layout caption="Results Type"> 
+     <vaadin-check-box caption="CI Results" width="158px" checked _id="ciResults"></vaadin-check-box> 
+     <vaadin-check-box caption="CD Cycle Results" width="174px" checked _id="cdResults"></vaadin-check-box> 
+    </vaadin-horizontal-layout> 
+    <vaadin-option-group item-caption-mode="id" height="90px" tabindex="4"> 
+     <option>CI</option> 
+     <option>Nightly</option> 
+     <option>Weekly</option> 
+    </vaadin-option-group> 
+    <vaadin-text-field caption="Enter Build No" _id="buildNo"></vaadin-text-field> 
+    <vaadin-combo-box caption="Select OS" item-caption-mode="id"> 
+     <option>Option 1</option> 
+     <option>Option 2</option> 
+     <option>Option 3</option> 
+    </vaadin-combo-box> 
+   </vaadin-form-layout> 
+   <vaadin-label caption="Test Status" size-auto plain-text _id="statusLabel">
+     Label 
+   </vaadin-label> 
+   <vaadin-grid _id="results"></vaadin-grid> 
+  </vaadin-vertical-layout>  
+ </body>
+</html>

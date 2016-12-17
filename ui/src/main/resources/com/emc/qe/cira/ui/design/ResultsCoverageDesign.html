@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8" name="com.emc.qe.cira.ui.design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+ </head> 
+ <body> 
+  <vaadin-vertical-layout size-auto> 
+   <vaadin-form-layout size-auto> 
+    <vaadin-date-field caption="Enter Start Date" _id="start_date"></vaadin-date-field> 
+    <vaadin-date-field caption="Enter End Date" _id="end_date"></vaadin-date-field> 
+    <vaadin-combo-box caption="Select User" item-caption-mode="id" _id="user"> 
+     <option>Option 1</option> 
+     <option>Option 2</option> 
+     <option>Option 3</option> 
+    </vaadin-combo-box> 
+   </vaadin-form-layout> 
+   <vaadin-horizontal-layout spacing :middle> 
+    <vaadin-button plain-text _id="result">
+      Generate Result 
+    </vaadin-button> 
+    <vaadin-button width="152px" plain-text _id="cancel">
+      Cancel 
+    </vaadin-button> 
+   </vaadin-horizontal-layout> 
+   <vaadin-grid visible="false" height="200px" _id="analysisGrid"></vaadin-grid> 
+  </vaadin-vertical-layout>  
+ </body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8" name="com.emc.qe.cira.ui.design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta charset="UTF-8" name="package-mapping" content="com.emc.qe.cira.ui.design:com.emc.qe.cira.ui.design">
+ </head> 
+ <body> 
+  <vaadin-vertical-layout spacing size-auto> 
+   <vaadin-form-layout description="form to display data for the SE install" id="installSE_form" size-auto margin _id="installSE_form"> 
+    <vaadin-combo-box caption="Select OS" description="combo box to display OS " invalid-allowed="false" required id="os_combobox" input-prompt="Select OS" item-caption-mode="id" _id="os_combobox"> 
+     <option>Linux</option> 
+     <option>Windows</option> 
+    </vaadin-combo-box> 
+    <vaadin-list-select caption="Select Host" description="list of host based on OS selected" id="host_list" item-caption-mode="id" width="185px" _id="host_list" :middle :center></vaadin-list-select> 
+    <vaadin-text-field caption="Enter Host" id="host_input" input-prompt="Enter Host Name" immediate maxlength="10" _id="host_input"></vaadin-text-field> 
+   </vaadin-form-layout> 
+   <vaadin-horizontal-layout spacing id="h_checkbox_layout" _id="h_checkbox_layout"> 
+    <vaadin-check-box caption="Host Details" invalid-allowed="false" id="host_details_cb" width="151px" checked _id="host_details_cb"></vaadin-check-box> 
+    <vaadin-check-box caption="Install SE" id="install_se_cb" width="168px" _id="install_se_cb"></vaadin-check-box> 
+   </vaadin-horizontal-layout> 
+   <vaadin-list-select caption="Select SE Version" id="seVersion_list" visible="false" item-caption-mode="id" _id="seVersion_list" :middle> 
+    <option>x8.4.0.164.2250</option> 
+   </vaadin-list-select> 
+   <vaadin-button style-name="small" id="submit" plain-text _id="submit">
+     Submit 
+   </vaadin-button> 
+   <vaadin-panel id="panel" size-auto _id="panel" :middle :center> 
+    <vaadin-grid id="data_grid" visible="false" _id="data_grid"></vaadin-grid> 
+   </vaadin-panel> 
+  </vaadin-vertical-layout>  
+ </body>
+</html>
