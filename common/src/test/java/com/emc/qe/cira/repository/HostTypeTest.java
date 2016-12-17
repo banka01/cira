@@ -42,8 +42,10 @@ public class HostTypeTest {
 			host = hostTypeRepository.findUniqueHostOs();
 			
 			host.forEach(System.out::println);
-		
-		
+			
+				
+			
+				
 		
 	}
 

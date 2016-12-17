@@ -17,8 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.emc.qe.cira.model.Host;
 import com.emc.qe.cira.model.HostType;
+import com.emc.qe.cira.model.SeVersion;
 import com.emc.qe.cira.repository.HostRepository;
 import com.emc.qe.cira.repository.HostTypeRepository;
+import com.emc.qe.cira.repository.SeVersionRepository;
 import com.vaadin.data.Property;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Validator.InvalidValueException;
@@ -44,86 +46,24 @@ public class InstallSE extends InstallSEDesign implements View{
 	
 	protected Label l1 = new Label();
 	public static final String VIEW_NAME = "InstallSE";
+	
+	
 	@Autowired private HostRepository hostRepository;
 	
 	@Autowired private HostTypeRepository hostTypeRepository;
 	
-//	public InstallSE() 
-//	{
-//		
-//		OsComboBoxPopulate();
-//		dataGridPopulate();
-//		submit.setEnabled(true);
-//	    
-//		//
-//		host_list.setNullSelectionAllowed(false);
-//	    
-//		
-//		install_se_cb.addValueChangeListener(event->
-//					 {
-//						 Boolean value = install_se_cb.getValue();
-//							
-//							seVersion_list.setVisible(value);
-//							host_details_cb.setValue(!value);
-//							if(!submit.isEnabled())
-//							{
-//								submit.setEnabled(true);
-//							}
-//					 });
-//		host_details_cb.addValueChangeListener(event->
-//					{
-//						
-//						Boolean value = host_details_cb.getValue();
-//						install_se_cb.setValue(!value);
-//						
-//					});
-//		
-//		submit.addClickListener(event->	
-//		{
-//			
-//				
-//				Collection<String> list = Collections.emptyList();
-//						//TODO FIX host.getHostDetails("DLQA4213");
-//				
-//				
-//				
-//				System.out.println(list.toString());
-//				
-//				
-//				
-//			panel.setVisible(true);
-//			data_grid.setVisible(true);
-//			
-//			
-//			
-//			String os = host_list.getValue().toString();
-//			l1.setCaption("inside".concat(os));
-//			
-//			host_input.setValidationVisible(true);
-//			try
-//			{
-//				
-//				this.addComponent(l1);	
-//			}catch(InvalidValueException e)
-//			{
-//				Notification.show(e.getMessage());
-//				host_input.setValidationVisible(true);
-//			}
-//					
-//			
-//						
-//			
-//		});
-//				
-//	}
+	@Autowired private SeVersionRepository seVersionRepository;
+	
+
 
 	@PostConstruct
 	void init() 
 	{
-		
+		data_grid.setColumns("NAME","SE_VERSION","HOST_OS","SE_VERSION","IP_ADDRESS");
 		OsComboBoxPopulate();
-		dataGridPopulate();
+		//dataGridPopulate();
 		submit.setEnabled(true);
+		//populateSEVersionUpgradeList();
 	    
 		//
 		host_list.setNullSelectionAllowed(false);
@@ -132,13 +72,27 @@ public class InstallSE extends InstallSEDesign implements View{
 		install_se_cb.addValueChangeListener(event->
 					 {
 						 Boolean value = install_se_cb.getValue();
+						 panel.setVisible(false);
+						 data_grid.setVisible(false);
+						 
+						 if(value == true)
+						 {
+							 seVersion_list.setVisible(true);
+							 populateSEVersionUpgradeList();
+						 }
+						 else
+						 {
+							 seVersion_list.setVisible(false);
+							 
+						 }
 							
-							seVersion_list.setVisible(value);
+							//seVersion_list.setVisible(value);
 							host_details_cb.setValue(!value);
 							if(!submit.isEnabled())
 							{
 								submit.setEnabled(true);
 							}
+							//spopulateSEVersionUpgradeList(value);
 					 });
 		host_details_cb.addValueChangeListener(event->
 					{
@@ -146,25 +100,20 @@ public class InstallSE extends InstallSEDesign implements View{
 						Boolean value = host_details_cb.getValue();
 						install_se_cb.setValue(!value);
 						
+						
 					});
 		
 		submit.addClickListener(event->	
 		{
-			
-				
-				Collection<String> list = Collections.emptyList();
-						//TODO FIX host.getHostDetails("DLQA4213");
-				
-				
-				
-				System.out.println(list.toString());
-				
-				
-				
+							
 			panel.setVisible(true);
-			data_grid.setVisible(true);
+			if(host_details_cb.getValue() == true)
+			{
+				data_grid.setVisible(true);
+			}
 			
 			
+			dataGridPopulate();
 			
 			String os = host_list.getValue().toString();
 			l1.setCaption("inside".concat(os));
@@ -188,18 +137,45 @@ public class InstallSE extends InstallSEDesign implements View{
 	}
 
 	
+	
+
+	private void populateSEVersionUpgradeList() {
+		// TODO Auto-generated method stub
+		seVersion_list.removeAllItems();
+		
+		List<String> version = seVersionRepository.findSeVersion();
+		logger.info("SE version:{}",version);
+		
+		seVersion_list.addItems(version);
+		
+		seVersion_list.setValue(seVersion_list.getItemIds().iterator().next());
+		
+		
+	}
+
+
 	private void dataGridPopulate() {
 	// TODO Auto-generated method stub
-		data_grid.setVisible(false);
-		data_grid.setColumns("NAME","SE_VERSION","HOST_OS","OS_VERSION","IP_ADDRESS");
+		//data_grid.setVisible(false);
+		
+		
+		if(host_details_cb.getValue() == true)
+		{
+			logger.info("grid populated");
+			logger.info("host is:{}",host_list.getValue().toString());
+		}
+		else
+		{
+			logger.info("grid not populated");
+		}
+		
 		
 		
 }
 @SuppressWarnings("deprecation")
 private void OsComboBoxPopulate()  
 {
-		// TODO Auto-generated method stub
-		
+				
 		os_combobox.removeAllItems();
 		
 		List<String> hostOs = hostTypeRepository.findUniqueHostOs();
@@ -212,20 +188,10 @@ private void OsComboBoxPopulate()
 		os_combobox.setValue(os_combobox.getItemIds().iterator().next());
 				
 		logger.info("OS in combox box:{}",os_combobox.getValue());
-		
-		
+				
 		String selOs = os_combobox.getValue().toString();
 		
 		populateHostName(selOs);
-		
-//		TODO FIX osList = listOSName(os_combobox.getValue().toString());
-		
-		
-//		for(String name:osList)
-//		{
-//			host_list.addItem(name);
-//		}
-//		host_list.select(host_list.getItemIds().iterator().next());
 		
 		os_combobox.addListener(new Property.ValueChangeListener() {
 
@@ -233,21 +199,26 @@ private void OsComboBoxPopulate()
 	        public void valueChange(ValueChangeEvent event) {
 	        	host_list.removeAllItems();
 	        	
-	        	populateHostName(os_combobox.getValue().toString());
 	        	logger.info("OS in combox box:{}",os_combobox.getValue());
-	           
+	        	populateHostName(os_combobox.getValue().toString());
+	        
 	        }   
 	    });   
 		
 }
-
-
+/**
+ * This method is used to populate the comboBox
+ * @param selOs the OS name for which the host name to be displayed
+ */
 private void populateHostName(String selOs) {
-	// TODO Auto-generated method stub
-	
+		
 	List<String> osName = hostTypeRepository.findHostNameByHostOs(selOs);
-	logger.info("os selected is:{}",osName);
 	
+	host_list.addItems(osName);
+	
+	host_list.setValue(host_list.getItemIds().iterator().next());
+	
+	logger.info("OS:[{}],Host:{},ListBox:{}",selOs,osName,host_list.getItemIds().toString());
 	
 }
 

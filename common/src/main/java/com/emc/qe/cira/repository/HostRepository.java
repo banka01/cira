@@ -9,4 +9,5 @@ import com.emc.qe.cira.model.Host;
 public interface HostRepository extends JpaRepository<Host, Long> {
 
 	Host findByHostName(String name);
+		
 }

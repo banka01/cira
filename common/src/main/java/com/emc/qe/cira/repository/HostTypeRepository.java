@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.emc.qe.cira.model.HostType;
 
-@Repository
+//@Repository
 public interface HostTypeRepository extends JpaRepository<HostType,Long> {
 
 	List<HostType> findByHostOs(String name);
@@ -21,4 +21,6 @@ public interface HostTypeRepository extends JpaRepository<HostType,Long> {
 	
 	@Query("SELECT DISTINCT h.hostOs FROM HostType h")
 	List<String> findUniqueHostOs();
+	
+	
 }
