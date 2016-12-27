@@ -1,0 +1,20 @@
+01:25:28.831 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\CI_Results\840\LINUX\SE_CI\622
+01:25:57.815 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\CI_Results\840\LINUX\SE_CI\622
+01:26:13.723 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\CI_Results\840\LINUX\SE_CI\622
+01:27:09.459 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\CI_Results\840\LINUX\SE_CI\622
+01:27:09.466 [main] INFO  c.emc.qe.cira.csv.results.CIResults - file is:C:\Users\bankar\workspace\CI_Results\840\LINUX\SE_CI\622\ARTS_report_X8.4.0.151_622 - Copy.csv
+01:35:03.574 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\CI_Results\840\LINUX\SE_CI\622
+01:35:03.582 [main] INFO  c.emc.qe.cira.csv.results.CIResults - file is:C:\Users\bankar\workspace\CI_Results\840\LINUX\SE_CI\622\ARTS_report_X8.4.0.151_622 - Copy.csv
+01:35:43.833 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\CI_Results\840\LINUX\SE_CI\622
+01:35:43.843 [main] INFO  c.emc.qe.cira.csv.results.CIResults - file is:C:\Users\bankar\workspace\CI_Results\840\LINUX\SE_CI\622\ARTS_report_X8.4.0.151_622 - Copy.csv
+02:04:41.057 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\results\CD_RESULTS\840\SE_CD_14_15
+02:05:30.530 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\results\CD_RESULTS\840\SE_CD_14_15
+02:05:30.538 [main] INFO  c.emc.qe.cira.csv.results.CIResults - file is:C:\Users\bankar\workspace\results\CD_RESULTS\840\SE_CD_14_15\ARTS_report_X8.4.0.151_622.csv
+02:05:59.982 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\results\CI_RESULTS\840\LINUX\SE_CI\622
+02:05:59.989 [main] INFO  c.emc.qe.cira.csv.results.CIResults - file is:C:\Users\bankar\workspace\results\CI_RESULTS\840\LINUX\SE_CI\622\ARTS_report_X8.4.0.151_622 - Copy.csv
+02:23:21.392 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\results\CI_RESULTS\840\LINUX\SE_CI\622
+02:23:21.400 [main] INFO  c.emc.qe.cira.csv.results.CIResults - file is:C:\Users\bankar\workspace\results\CI_RESULTS\840\LINUX\SE_CI\622\ARTS_report_X8.4.0.151_622 - Copy.csv
+02:25:12.859 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\results\CI_RESULTS\840\LINUX\SE_CI\622
+02:25:12.868 [main] INFO  c.emc.qe.cira.csv.results.CIResults - file is:C:\Users\bankar\workspace\results\CI_RESULTS\840\LINUX\SE_CI\622\ARTS_report_X8.4.0.151_622 - Copy.csv
+14:47:55.849 [main] INFO  c.emc.qe.cira.csv.results.CIResults - path:C:\Users\bankar\workspace\results\CI_RESULTS\840\LINUX\SE_CI\622
+14:47:55.856 [main] INFO  c.emc.qe.cira.csv.results.CIResults - file is:C:\Users\bankar\workspace\results\CI_RESULTS\840\LINUX\SE_CI\622\ARTS_report_X8.4.0.151_622 - Copy.csv

@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.emc.qe.cira.config.CiraDbConfig;
 import com.emc.qe.cira.model.Host;
 import com.emc.qe.cira.model.HostType;
-
+import com.emc.qe.cira.model.JenkinsSEJob;
 
 
 @ContextConfiguration(classes=CiraDbConfig.class)
@@ -30,22 +30,25 @@ public class HostTypeTest {
 	
 	
 	@Autowired private HostTypeRepository hostTypeRepository;
-	
+	@Autowired private JenkinsSEJobRepository jsejob;
 	
 	@Test public void
 	whenFindAll_givenDataInData_shouldReturnAllRows() {
 		
 	List<String> host = null; //= hostTypeRepository.findByHostOs("LINUX");
 			
+			//List<HostType> ht = hostTypeRepository.findByHostOs("AIX");
 			
 			
-			host = hostTypeRepository.findUniqueHostOs();
 			
-			host.forEach(System.out::println);
+			//ht.forEach(e->System.out.println(e.getHostName()));
+			
+			//host = hostTypeRepository.findUniqueHostOs();
+			
+			//host.forEach(System.out::println);
 			
 				
 			
-				
 		
 	}
 

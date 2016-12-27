@@ -1,0 +1,20 @@
+resultsGrid.getColumn("runID").setRenderer(new HtmlRenderer());
+		
+		
+		
+		Grid.Column startTime = resultsGrid.getColumn("start_time");
+		System.out.println("abcd"+startTime.getPropertyId());
+		startTime.setRenderer(new HtmlRenderer());
+		resultsGrid.setCellStyleGenerator(new CellStyleGenerator() {
+			
+			@Override
+			public String getStyle(CellReference cell) {
+				// TODO Auto-generated method stub
+				if("runID".equals(cell.getPropertyId()))
+				{
+					logger.info("cell is :{}",cell.getPropertyId().toString());
+					return ValoTheme.LABEL_COLORED;
+				}
+				return null;
+			}
+		});
